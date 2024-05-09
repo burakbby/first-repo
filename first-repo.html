@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kahve İçme Durumu</title>
+  <style>
+    #kahveFormu {
+      width: 300px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+<form id="kahveFormu">
+  <fieldset>
+    <legend>Pazar günü bir kahve içebilir miyiz?</legend>
+    <div>
+      <input type="radio" id="yes" name="response" value="evet">
+      <label for="yes">Evet</label>
+    </div>
+    <div>
+      <input type="radio" id="no" name="response" value="hayir">
+      <label for="no">Hayır</label>
+    </div>
+  </fieldset>
+  <input type="submit" value="Gönder">
+</form>
+
+<script>
+  document.getElementById('kahveFormu').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const response = document.querySelector('input[name="response"]:checked').value;
+    if (response === 'evet') {
+      alert('Çok sevindim!Ne kadar çok ortak yönümüz olduğunu keşfetmek için saat kaç uygundur?');
+    } else if (response === 'hayir') {
+      alert('Tutunacak bir dalım kalmadı.Tutunamadım.');
+    }
+  });
+</script>
+</body>
+</html>
